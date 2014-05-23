@@ -1,0 +1,200 @@
+@import "bourbon"
+@import "cask"
+@import "reset"
+@import "syntax"
+@import "mixins"
+
+html
+  font: 16px/1.5 $adamina
+  +font-smoothing
+  +max-width(800)
+    font-size: 90%
+  +max-width(700)
+    font-size: 80%
+  +max-width(500)
+    font-size: 70%
+
+body
+  background: #dfe4e4
+  > header
+    padding-bottom: 3em
+    a
+      font-size: .875em
+      color: #fff
+      text-align: right
+      display: block
+      float: right
+      padding: .8em .8em .8em 2.8em
+      border-bottom-right-radius: .5em
+      border-bottom-left-radius: .5em
+      background: #be895e image-url("icon_github.png") .8em .95em no-repeat
+      background-size: 24px 18px
+      &:hover
+        color: #fff
+        background-color: saturate(#be895e, 10%)
+        +transition(background-color, 240ms)
+    hgroup
+      background: image-url("bg_header_shape.png") center 2em no-repeat
+      background-size: 571px 248px
+      min-height: 248px
+      padding-top: 5em
+      +box-sizing(border-box)
+      +max-width(620)
+        font-size: .8rem
+        background-size: 285px 124px
+        background-position: center 3em
+        min-height: 124px
+      +max-width(320)
+        font-size: .6rem
+      h1
+        font: 12em/.89 $oldstandard
+        letter-spacing: -.04em
+        text-align: center
+        color: #2f2f2f
+        display: block
+        text-shadow: -4px 4px #dbdbdb
+        +max-width(320)
+          text-shadow: -2px 2px #dbdbdb
+      h2
+        font: 1.3em $oldstandard
+        font-style: italic
+        letter-spacing: -.05em
+        text-align: center
+        color: #615f5f
+
+h1, h2, h3, h4, h5, h6
+  font-weight: normal
+
+a
+  color: #238a8a
+  text-decoration: none
+  &:hover
+    color: saturate(#238a8a, 50%)
+    +transition(color, 240ms)
+
+pre, code
+  white-space: pre-wrap
+  word-wrap: break-word
+
+.column
+  min-width: 270px
+  max-width: 1000px
+  padding: 0 1em
+  margin: 0 auto
+  +box-sizing(border-box)
+
+#intro
+  background: #2f2f2f
+  padding-top: 5em
+  overflow: hidden
+  h2
+    font-size: 2.5em
+    color: #fff
+    text-align: center
+    margin-bottom: 2em
+  .terminal
+    width: 46%
+    position: relative
+    +box-sizing(border-box)
+    h3
+      font: .75em "Lucida Grande", "Lucida Sans Unicode", sans-serif
+      color: #3b3b3b
+      text-align: center
+      background: #bdbebe
+      display: block
+      padding: 7px 0
+      border-top-right-radius: .625em
+      border-top-left-radius: .625em
+    .code
+      color: #b1b1b1
+      background: #0e0f0f
+      padding: 1em
+      min-height: 20em
+      width: 100%
+      z-index: 1
+      +box-sizing(border-box)
+    &.haml-example
+      float: left
+      margin-right: 2%
+      &:after
+        content: ""
+        width: 125px
+        height: 101px
+        display: block
+        background: image-url("icon_arrow.png") 0 0 no-repeat
+        background-size: 125px 101px
+        position: absolute
+        right: -5.7em
+        top: 6em
+        z-index: 5
+        +max-width(600)
+          background-size: 62px 50px
+          right: -9em
+    &.html-example
+      float: right
+      margin-left: 2%
+
+section
+  font-size: 1.125rem
+  article
+    width: 70%
+    margin: 0 auto
+    border-top: 1px solid #c4caca
+    padding: 2.5em 0
+    &:first-child
+      border-top: 0
+    h1
+      font-size: 1.72em
+      text-align: center
+      padding-bottom: 1.8em
+    pre, p code
+      font-size: .83em
+      padding: .7em 1em
+      background: #f4f4f4
+      border: 1px solid #a8b9b9
+      border-radius: .5em
+      margin-bottom: 1.6em
+    p
+      margin-bottom: 1.6em
+      code
+        padding: .2em .4em
+        margin: 0 .1em
+    &.coming-soon
+      border: 1px solid #c4caca
+      border-radius: .5em
+      width: 70%
+      padding: 3em 10em
+      margin-bottom: 4em
+      +box-sizing(border-box)
+      ul
+        li
+          color: #615f5f
+          list-style: disc
+          list-style-position: inside
+          margin-bottom: .3em
+      +max-width(950)
+        padding-right: 6em
+        padding-left: 6em
+      +max-width(765)
+        padding-right: 3em
+        padding-left: 3em
+
+footer
+  font-size: .875rem
+  text-align: center
+  padding: 4.375em 0
+  p
+    color: #818585
+  a
+    &.download
+      font-size: 1.42em
+      color: #be895e
+      display: block
+      padding-top: 4em
+      margin-bottom: .25em
+      background-position: center top
+      background-repeat: no-repeat
+      +retina-asset("bg_download", 80px 51px)
+      &:hover
+        color: saturate(#be895e, 50%)
+        +transition(color, 240ms)

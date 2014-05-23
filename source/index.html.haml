@@ -1,0 +1,218 @@
+%header
+  .column
+    = link_to "Source on Github", "http://github.com/nurugger07/calliope"
+    %hgroup
+      %h1 Calliope
+      %h2 A Haml Parser for Elixir
+
+#intro
+  .column
+    %h2 Calliope is a parser written in Elixir that renders Haml and Elixir to HTML.
+    .terminal.haml-example
+      %h3 Haml &amp; Elixir
+      .code
+        :code
+          # lang: haml
+
+          !!! 5
+          %html{lang: "en-US"}
+            %head
+              %title Welcome to Calliope
+            %body
+              %h1 Calliope
+              %h2 The muse of epic poetry
+    .terminal.html-example
+      %h3 HTML
+      .code
+        :code
+          # lang: html
+
+          <!DOCTYPE html>
+          <html lang="en-US">
+            <head>
+              <title>Welcome to Calliope</title>
+            </head>
+            <body>
+              <h1>Calliope</h1>
+              <h2>The muse of epic poetry</h2>
+            </body>
+          </html>
+    .arrow
+
+.column
+  %section
+    %article
+      %h1 Usage
+      %p To use Calliope, add a dependency to your project mix file.
+      :code
+        # lang: erlang
+        def deps do
+          [ { :calliope, github: "nurugger07/calliope" } ]
+        end
+      %p
+        Next, run
+        %code mix deps.get
+        in the shell to fetch and compile the dependencies. Then you can either call to Calliope directly:
+      :code
+        # lang: erlang
+        iex(1)> Calliope.render "%h1 Welcome to Calliope"
+        "<h1>Welcome to Calliope</h1>"
+      %p
+        Or
+        %code use
+        Calliope in a module and call through your module:
+      :code
+        # lang: erlang
+        defmodule MyModule do
+          use Calliope
+        end
+      :code
+        # lang: erlang
+        iex(1)> Calliope.render "%h1 Welcome to Calliope"
+        "<h1>Welcome to Calliope</h1>"
+
+    %article
+      %h1 Formatting
+      %p
+        Refer to the
+        = link_to "Haml reference page", "http://haml.info/docs/yardoc/file.REFERENCE.html"
+        for syntax information. Most of the syntax has been accounted for, but more functionality is being added.
+
+      %p Haml is basically a whitespace-sensitive shorthand for HTML that does not use end tags. Although Calliope uses Haml formatting, it has its own flavor.
+
+      %p Have a look:
+
+      :code
+        # lang: haml
+
+        %tag{ attr: "", attr: "" } Content
+
+      :code
+        # lang: haml
+
+        %tag(attr="" attr="") Content
+
+      %p
+        The
+        %code id
+        and
+        %code class
+        attributes can also be assigned directly to the tag:
+
+      :code
+        # lang: haml
+
+        %tag#id.class Content
+
+      %p
+        If you&rsquo;re creating a
+        = succeed ',' do
+          %code div
+        you don&rsquo;t need to include the tag at all. This Haml:
+
+        :code
+          # lang: haml
+
+          #main
+             .blue Content
+
+      %p Will generate the following HTML:
+      :code
+        # lang: html
+
+        <div id='main'>
+          <div class='blue'>
+            Content
+          </div>
+        </div>
+
+    %article
+      %h1 Passing Arguments
+
+      %p The render function will also take a list of named arguments that can be evaluated when compiling the HTML.
+
+      %p Given the following Haml:
+
+      :code
+        # lang: haml
+        #main
+           .blue= content
+
+      %p
+        Call
+        %code render
+        and pass in the
+        %code haml
+        and
+        = succeed ':' do
+          %code content
+
+      :code
+        # lang: erlang
+
+        Calliope.render haml, [content: "Hello, World"]
+
+      %p Calliope will render:
+
+      :code
+        # lang: html
+
+        <div id='main'>
+          <div class='blue'>
+            Hello, World
+          </div>
+        </div>
+
+    %article
+      %h1 Embedded Elixir
+
+      %p Calliope doesn&rsquo;t just evaluate arguments. You can actually embed Elixir directly into the templates:
+
+      :code
+        # lang: erlang
+
+      %p
+        Pass the above to
+        %code render
+        with a list of posts:
+
+      :code
+        # lang: erlang
+
+        Calliope.render haml, [posts: [{1, "Headline 1",
+        "Content 1"}, {2, "Headline 2", "Content 2"}]
+
+      %p Which renders:
+
+      :code
+        # lang: html
+
+        <h1>
+          <a href="/posts/1">Headline 1</a>
+        </h1>
+        <div class="content">
+          Content 1
+        </div>
+        <h1>
+          <a href="/posts/2">Headline 2</a>
+        </h1>
+        <div class="content">
+          Content 2
+        </div>
+
+    %article.coming-soon
+      %h1 Coming Soon
+      %ul
+        %li Rendering Elixir conditionals
+        %li Rendering partials
+        %li Rendering exception messages
+
+    %footer
+      = link_to "Get the source on Github", "http://github.com/nurugger07/calliope", class: "download"
+      %p
+        Developed by
+        = link_to "Johnny", "https://twitter.com/johnny_rugger"
+        and designed by
+        = link_to "Rye", "https://twitter.com/ryenotbread"
+        at
+        = link_to "Hashrocket", "http://www.hashrocket.com"
