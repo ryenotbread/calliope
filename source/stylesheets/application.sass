@@ -147,7 +147,7 @@ section
       font-size: 1.72em
       text-align: center
       padding-bottom: 1.8em
-    pre, p code
+    pre, p code, dl code
       font-size: .83em
       padding: .7em 1em
       background: #f4f4f4
@@ -156,9 +156,22 @@ section
       margin-bottom: 1.6em
     p
       margin-bottom: 1.6em
+    dl, p
       code
         padding: .2em .4em
         margin: 0 .1em
+    dl
+      overflow: hidden
+      dt, dd
+        display: block
+      dt
+        clear: both
+        float: left
+        width: 27%
+      dd
+        float: right
+        margin-bottom: 1em
+        width: 73%
     &.coming-soon
       border: 1px solid #c4caca
       border-radius: .5em

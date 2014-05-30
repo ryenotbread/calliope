@@ -43,7 +43,7 @@
   %section
     %article
       %h1 Usage
-      %p For those of you that prefer the poetic beauty of HAML templates over HTML, then Calliope is the package for you. Calliope is a parser written in Elixir that will render HAML/Elixir templates into HTML.
+      %p For those of you who prefer the poetic beauty of HAML templates over HTML, then Calliope is the package for you. Calliope is a parser written in Elixir that will render HAML/Elixir templates into HTML.
       %p Calliope is simple to add to any project. If you are using the hex package manager, just add the following to your mix file:
 
       :code
@@ -52,7 +52,7 @@
           [ { :calliope, "0.2.1" } ]
         end
 
-      %p If you aren't using hex, add the a reference to the github repo.
+      %p If you aren&rsquo;t using hex, add the a reference to the github repo.
 
       :code
         # lang: erlang
@@ -237,31 +237,41 @@
             end
           end
 
-
       %p
         In addition to
         %code :layout
         you can also set the following options:
 
-      %p
-        %code :path
-        provides the root path. The default is the current working directory.
-      %p
-        %code :templates
-        used to define where the templates are stored. By default it will use
-        %code :path
-      %p
-        %code :alias
-        used to set the directory where the templates are located. The default value is 'templates'.
-      %p
-        %code :layout_directory
-        the directory that your layouts are stored relative to the templates path. The default directory is
-        %code layouts
-      %p
-        %code :layout
-        the layout to use for templates. The default is
-        %code :none
-        or you can pass in the name of a layout.
+      %dl
+        %dt
+          %code :path
+        %dd
+          provides the root path. The default is the current working directory.
+        %dt
+          %code :templates
+        %dd
+          is used to define where the templates are stored. By default it will use
+          = succeed "." do
+            %code :path
+        %dt
+          %code :alias
+        %dd
+          is used to set the directory where the templates are located. The default value is
+          = succeed "." do
+            %code templates
+        %dt
+          %code :layout_directory
+        %dd
+          the directory that your layouts are stored relative to the templates path. The default directory is
+          = succeed "." do
+            %code layouts
+        %dt
+          %code :layout
+        %dd
+          the layout to use for templates. The default is
+          = succeed "," do
+            %code :none
+          or you can pass in the name of a layout.
 
     %article.coming-soon
       %h1 Coming Soon
