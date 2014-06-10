@@ -43,7 +43,7 @@
   %section
     %article
       %h1 Usage
-      %p If you prefer the poetic beauty of HAML templates over HTML, then Calliope is the package for you. Calliope is a parser written in Elixir that will render HAML/Elixir templates into HTML.
+      %p If you prefer the poetic beauty of Haml templates over HTML, then Calliope is the package for you. Calliope is a parser written in Elixir that will render Haml/Elixir templates into HTML.
       %p Calliope is simple to add to any project. If you are using the hex package manager, just add the following to your mix file:
 
       :code
@@ -208,7 +208,7 @@
     %article
       %h1 Precompile Templates
 
-      %p Calliope provides an Engine to precompile your haml templates in to functions. This parses the template at compile time and creates a function that takes the name and args needed to render the page. These functions are scoped to the module that uses the engine.
+      %p Calliope provides an engine to precompile your Haml templates into functions. This parses the template at compile time and creates a function that takes the name and args needed to render the page. These functions are scoped to the module that uses the engine.
 
       %p Adding this functionality is easy.
 
@@ -262,13 +262,13 @@
         %dt
           %code :layout_directory
         %dd
-          the directory that your layouts are stored relative to the templates path. The default directory is
+          is the directory where your layouts are stored relative to the templates path. The default directory is
           = succeed "." do
             %code layouts
         %dt
           %code :layout
         %dd
-          the layout to use for templates. The default is
+          is the layout to use for templates. The default is
           = succeed "," do
             %code :none
           or you can pass in the name of a layout.
