@@ -229,13 +229,13 @@
 
       :code
         # lang: erlang
-          defmodule Simple do
-            use Calliope.Engine, layout: "application"
+        defmodule Simple do
+          use Calliope.Engine, layout: "application"
 
-            def show do
-              content_with_layout(:show, [title: Calliope])
-            end
+          def show do
+            content_with_layout(:show, [title: Calliope])
           end
+        end
 
       %p
         In addition to
